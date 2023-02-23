@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name: postgresql
+  namespace: leadlineit
+  author: Artem Kasianchuk
+  description: Install and configure PostgreSQL Server 14
+  license: MIT
+  min_ansible_version: '2.9'
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+  galaxy_tags:
+    - system
+    - debian
+    - databases
+    - postgresql

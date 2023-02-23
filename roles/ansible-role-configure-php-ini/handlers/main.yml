@@ -1,0 +1,9 @@
+---
+# handlers file for ansible-role-configure-php-ini
+
+- name: reload apache2
+  service:
+    name: apache2
+    state: reloaded
+
+...

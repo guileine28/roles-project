@@ -1,0 +1,22 @@
+---
+
+- name: Install MySQL
+  apt:
+    state: present
+    pkg:
+      - mysql-server
+  notify:
+    - Restart MySQL
+
+- name: Set binding
+  ini_file:
+    dest: "/etc/mysql/mysql.conf.d/mysqld.cnf"
+    section: "mysqld"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+    mode: 0644
+  with_items:
+    - { option: "bind-address", value: "{{ _mysql.listen.ip }}" }
+    - { option: "port", value: "{{ _mysql.listen.port }}" }
+  notify:
+    - Restart MySQL

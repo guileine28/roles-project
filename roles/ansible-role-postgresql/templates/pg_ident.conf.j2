@@ -1,0 +1,7 @@
+#{{ ansible_managed }}
+# PostgreSQL User Name Maps
+# =========================
+# ----------------------------------
+
+# MAPNAME       SYSTEM-USERNAME         PG-USERNAME
+{{ pgsql_map_name | default("") }}         {{ pgsql_map_sysuser | default("") }}                    {{ pgsql_map_pguser | default("") }}

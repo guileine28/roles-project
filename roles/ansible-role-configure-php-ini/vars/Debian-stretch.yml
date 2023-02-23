@@ -1,0 +1,6 @@
+---
+## Vars defined for debian buster distribution
+
+php_ini_php_version_dist: '{{ php_ini_php_version if php_ini_php_version is defined else "7.0" }}'
+
+...

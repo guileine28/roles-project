@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Lukas Pustina
+  namespace: rheinwerk
+  role_name: mysql
+  description: Installs and configures mysql
+  company: Rheinwerk
+  license: license (GPL)
+  min_ansible_version: 2.9.0
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - db
+    - mysql
+dependencies: []

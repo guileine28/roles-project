@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    RW_APT_CACHE_UPDATE: yes
+    MYSQL:
+      default_config: no
+      listen:
+        ip: 127.0.0.1
+        port: 3306
+      root:
+        password: "root"
+      users:
+        wordpress:
+          state: present
+          name: wordpress
+          password: "wordpress"
+          privileges: "wordpress.*:ALL,GRANT"
+          hosts:
+            - localhost
+        backup:
+          state: present
+          name: backup
+          password: "backup"
+          privileges: '*.*:SELECT,LOCK TABLES,RELOAD,REPLICATION CLIENT'
+          hosts:
+            - localhost
+      databases:
+        wordpress:
+          state: present
+
+  roles:
+    - { role: ansible-role-mysql, tags: ['mysql'], _mysql: "{{ MYSQL }}" }
